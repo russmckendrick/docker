@@ -1,6 +1,6 @@
 ### Dockerfile
 #
-#   See https://github.com/russmckendrick/docker-base
+#   See https://github.com/russmckendrick/docker
 
 FROM centos
 MAINTAINER Russ McKendrick <russ@media-glass.es>

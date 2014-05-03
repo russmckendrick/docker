@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+SERVER_ROOT_PASSWORD=${SERVER_ROOT_PASSWORD:-"tcVF4yEymJt8EJebnU"}
+echo "root:$SERVER_ROOT_PASSWORD" | chpasswd
+exec supervisord -n
