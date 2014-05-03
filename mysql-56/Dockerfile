@@ -2,7 +2,7 @@
 #
 #   See https://github.com/russmckendrick/docker
 
-FROM russmckendrick/base
+FROM russmckendrick/jump-host
 MAINTAINER Russ McKendrick <russ@media-glass.es>
 RUN yum -y install python-pip mysql56u mysql56u-server
 RUN echo "NETWORKING=yes" > /etc/sysconfig/network
