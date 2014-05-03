@@ -7,7 +7,7 @@ MYSQL_USER=${MYSQL_USER:-""}
 MYSQL_PASSWORD=${MYSQL_PASSWORD:-""}
 
 chown -R mysql:mysql /var/lib/mysql
-/etc/init.d/mysqld restart
+service mysqld restart
 
 tfile=`mktemp`
 if [[ ! -f "$tfile" ]]; then
