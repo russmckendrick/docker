@@ -8,7 +8,7 @@ RUN yum -y install httpd git php54 php54-fpm php54-mysql php54-pdo php54-devel p
 RUN echo "NETWORKING=yes" > /etc/sysconfig/network
 RUN pip install "pip>=1.4,<1.5" --upgrade
 RUN pip install supervisor
-ADD phpinfo.php /var/www/html/
+ADD index.php /var/www/html/
 ADD supervisord.conf /etc/
 EXPOSE 80
 CMD ["supervisord", "-n"]
