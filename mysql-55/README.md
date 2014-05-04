@@ -1,7 +1,9 @@
 MySQL 5.5
 =============
 
-A Docker build, which runs just MySQL 5.5. You can set the root MySQL password by passing the `MYSQL_ROOT_PASSWORD` as an environment variable (if nothing is passed then the password will be blank, be carefull !!!). You can also create a database by setting and passing the following ...
+A Docker build which runs just MySQL 5.5.
+
+You can set the root MySQL password by passing the `MYSQL_ROOT_PASSWORD` as an environment variable (if nothing is passed then the password will be blank, be carefull !!!). You can also create a database by setting and passing the following ...
 
 - `MYSQL_DATABASE` = Name of the database to create
 - `MYSQL_USER` = Username for the database you defined in `MYSQL_DATABASE`
