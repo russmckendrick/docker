@@ -4,10 +4,12 @@
 
 FROM russmckendrick/base
 MAINTAINER Russ McKendrick <russ@media-glass.es>
-RUN yum -y install httpd php54 php54-fpm php54-mysql php54-pdo php54-devel php54-gd php54-pecl-memcache php54-pspell php54-snmp php54-xmlrpc php54-xml python-pip
+ADD nginx-release.repo /etc/yum.repos.d/
+RUN yum -y install nginx php55u php55u-mysqlnd php55u-devel php55u-gd php55u-pecl-memcache php55u-pspell php55u-snmp php55u-xmlrpc php55u-xml php55u-fpm python-pip
 RUN echo "NETWORKING=yes" > /etc/sysconfig/network
 RUN pip install "pip>=1.4,<1.5" --upgrade
 RUN pip install supervisor
+ADD default.conf /etc/nginx/conf.d/
 ADD index.php /var/www/html/
 ADD supervisord.conf /etc/
 EXPOSE 80
