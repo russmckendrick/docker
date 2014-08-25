@@ -6,23 +6,19 @@ MYSQL_USER=${MYSQL_USER:-""}
 MYSQL_PASSWORD=${MYSQL_PASSWORD:-""}
 VOLUME_HOME="/var/lib/mysql"
 
-
 chown -R mysql:mysql $VOLUME_HOME
 
 if [[ ! -d $VOLUME_HOME/mysql ]]; then
-    echo "=> An empty or uninitialized MariaDB volume is detected in $VOLUME_HOME"
-    echo "=> Installing MariaDB ..."
-    mysql_install_db > /dev/null 2>&1
-    echo "=> Done!"  
-else
-    echo "=> Using an existing volume of MariaDB"
-fi
 
+echo "=> An empty or uninitialized MariaDB volume is detected in $VOLUME_HOME"
+echo "=> Installing MariaDB ..."
+mysql_install_db > /dev/null 2>&1
+echo "=> Done!"  
 
 PASS=${MYSQL_ADMIN_PASSWORD:-$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 8)}
 _word=$( [ ${MYSQL_ADMIN_PASSWORD} ] && echo "preset" || echo "random" )
 
-echo "=> Creating MariaDB admin user with ${_word} password"
+echo "=> Creating MariaDB root user with ${_word} password"
 
 tfile=`mktemp`
 if [[ ! -f "$tfile" ]]; then
@@ -43,16 +39,24 @@ fi
 sleep 5
 mysql < $tfile
 rm -f $tfile
+kill %1
+wait
 
 echo "=> Done!"
 
 echo "========================================================================"
 echo "You can now connect to this MariaDB Server using:"
 echo ""
-echo "    mysql -uadmin -p$PASS -h<host> -P<port>"
+echo "    mysql -uroot -p$PASS -h<host> -P<port>"
 echo ""
-echo "Please remember to change the above password as soon as possible!"
-echo "MariaDB user 'root' has no password but only allows local connections"
+echo " or:"
+echo ""
+echo "    mysql -u$MYSQL_USER -p$MYSQL_PASSWORD -h<host> -P<port>"
+echo ""
 echo "========================================================================"
+
+else
+    echo "=> Using an existing volume of MariaDB"
+fi
 
 exec mysqld_safe
