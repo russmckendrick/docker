@@ -2,8 +2,8 @@
 #
 #   See https://github.com/russmckendrick/docker
 
-FROM centos
+FROM centos:latest
 MAINTAINER Russ McKendrick <russ@media-glass.es>
-RUN yum -y install http://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm http://dl.iuscommunity.org/pub/ius/stable/CentOS/6/i386/ius-release-1.0-11.ius.centos6.noarch.rpm
-RUN yum -y update
-RUN yum -y install yum-priorities vim-enhanced
+RUN ["/usr/bin/rpm", "--import", "/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7"]
+RUN ["/usr/bin/yum", "-y", "update"]
+RUN ["/usr/bin/yum", "-y", "install", "yum-priorities", "vim-enhanced"]
