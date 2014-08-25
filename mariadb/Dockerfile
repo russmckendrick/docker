@@ -8,5 +8,5 @@ RUN /usr/bin/yum -y install mariadb mariadb-server
 RUN /usr/bin/echo "NETWORKING=yes" > /etc/sysconfig/network
 ADD mysql-listen.cnf /etc/my.cnf.d/mysql-listen.cnf
 ADD run /usr/local/bin/
-RUN chmod +x q
+RUN chmod +x /usr/local/bin/run
 CMD ["/usr/local/bin/run"]
