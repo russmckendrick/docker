@@ -39,11 +39,14 @@ if [[ $MYSQL_DATABASE != "" ]]; then
         echo "GRANT ALL ON \`$MYSQL_DATABASE\`.* to '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD';" >> $tfile
     fi
 fi
-
+/usr/sbin/runuser -u mysql /usr/libexec/mysqld &
+sleep 5
 mysql < $tfile
 rm -f $tfile
+kill %1
+wait
 
-exec supervisord -n
+exec mysqld_safe
 
 echo "=> Done!"
 

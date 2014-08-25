@@ -4,11 +4,9 @@
 
 FROM russmckendrick/base:latest
 MAINTAINER Russ McKendrick <russ@media-glass.es>
-RUN /usr/bin/yum -y install python-setuptools mariadb mariadb-server
+RUN /usr/bin/yum -y install mariadb mariadb-server
 RUN /usr/bin/echo "NETWORKING=yes" > /etc/sysconfig/network
-RUN /usr/bin/easy_install pip
-RUN /usr/bin/pip install supervisor
-ADD supervisord.conf /etc/
+ADD mysql-listen.cnf /etc/my.cnf.d/mysql-listen.cnf
 ADD run /usr/local/bin/
-RUN chmod +x /usr/local/bin/run
+RUN chmod +x q
 CMD ["/usr/local/bin/run"]
