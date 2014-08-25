@@ -1,9 +1,9 @@
 MariaDB
 =============
 
-A Docker build which runs just MariaDB.
+A Docker build which runs just MariaDB 5.5.
 
-You can set the root MySQL password by passing the `MYSQL_ROOT_PASSWORD` as an environment variable (if nothing is passed then the password will be randowm, be carefull !!!). You can also create a database by setting and passing the following ...
+You can set the root MySQL password by passing the `MYSQL_ROOT_PASSWORD` as an environment variable (if nothing is passed then the password will be random, be carefull !!!). You can also create a database by setting and passing the following ...
 
 - `MYSQL_DATABASE` = Name of the database to create
 - `MYSQL_USER` = Username for the database you defined in `MYSQL_DATABASE`
@@ -11,12 +11,23 @@ You can set the root MySQL password by passing the `MYSQL_ROOT_PASSWORD` as an e
 
 You can lauch a continer by using ...
 
+
+
 ```
-docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=y0Urp455w0rd -e MYSQL_DATABASE=wibble -e MYSQL_USER=rah -e MYSQL_PASSWORD=y0UrDbP455w0rD russmckendrick/maria
+docker run -d russmckendrick/mariadb
+docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=y0Urp455w0rd russmckendrick/mariadb
+docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=y0Urp455w0rd -e MYSQL_DATABASE=wibble -e MYSQL_USER=rah -e MYSQL_PASSWORD=y0UrDbP455w0rD russmckendrick/mariadb
+docker run -d -p 3306:3306 -e MYSQL_DATABASE=wibble russmckendrick/mariadb
 ```
+
+If you didn't set `MYSQL_ROOT_PASSWORD` then you can run;
+
+
+
 
 Once running you can connect with ...
 
 ```
 mysql --host=localhost --protocol=TCP -p
 ```
+

@@ -44,7 +44,7 @@ mysql < $tfile
 rm -f $tfile
 
 if [[ $MYSQL_DATABASE != "" ]]; then
-echo "=> Creating $MYSQL_DATABASE database"
+echo "=> Creating a database called '$MYSQL_DATABASE'"
     if [[ $MYSQL_USER != "" ]]; then
 echo "=> Adding user '$MYSQL_USER' with a password of '$MYSQL_PASSWORD'"
     fi
@@ -54,14 +54,17 @@ echo "=> Done!"
 echo "========================================================================"
 echo "You can now connect to this MariaDB Server using:"
 echo ""
-echo "    mysql -uroot -p$PASS -h<host> -P<port>"
+echo "    mysql -uroot -p$PASS -h<host> -P<port> --protocol=TCP"
 if [[ $MYSQL_USER != "" ]]; then
 echo ""
 echo " or:"
 echo ""
-echo "    mysql -u$MYSQL_USER -p$MYSQL_PASSWORD -h<host> -P<port>"
+echo "    mysql -u$MYSQL_USER -p$MYSQL_PASSWORD -h<host> -P<port> --protocol=TCP"
 fi
 echo "========================================================================"
+
+kill %1
+wait
 
 else
     echo "=> Using an existing volume of MariaDB"
