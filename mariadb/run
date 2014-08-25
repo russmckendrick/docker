@@ -17,8 +17,8 @@ echo "=> Done!"
 
 chown -R mysql:mysql $VOLUME_HOME
 
-PASS=${MYSQL_ADMIN_PASSWORD:-$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 8)}
-_word=$( [ ${MYSQL_ADMIN_PASSWORD} ] && echo "preset" || echo "random" )
+PASS=${MYSQL_ROOT_PASSWORD:-$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 8)}
+_word=$( [ ${MYSQL_ROOT_PASSWORD} ] && echo "user defined" || echo "random" )
 
 echo "=> Creating MariaDB root user with ${_word} password"
 
@@ -43,8 +43,14 @@ fi
 mysql < $tfile
 rm -f $tfile
 
-echo "=> Done!"
+if [[ $MYSQL_DATABASE != "" ]]; then
+echo "=> Creating $MYSQL_DATABASE database"
+    if [[ $MYSQL_USER != "" ]]; then
+echo "=> Adding $MYSQL_USER user with a password of $MYSQL_PASSWORD"
+    fi
+fi
 
+echo "=> Done!"
 echo "========================================================================"
 echo "You can now connect to this MariaDB Server using:"
 echo ""
