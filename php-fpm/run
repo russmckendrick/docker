@@ -3,6 +3,14 @@ set -e
 
 echo "=> Installing PHP-FPM ..."
 
+if [[ $PHP_POOL != "" ]]; then
+echo "=> Custom pool name ($PHP_POOL) being used"
+sed -i '/[www]/c\['$PHP_POOL']' /etc/php-fpm.d/www.conf
+else
+echo "=> Default pool name (www) being used"
+fi
+echo "=> Done!"
+
 if [[ $PHP_PORT != "" ]]; then
 echo "=> Custom port ($PHP_PORT) being used"
 sed -i '/^listen/c \listen = 0.0.0.0:'$PHP_PORT'' /etc/php-fpm.d/www.conf
