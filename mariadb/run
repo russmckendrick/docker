@@ -4,10 +4,10 @@ set -e
 MYSQL_DATABASE=${MYSQL_DATABASE:-""}
 MYSQL_USER=${MYSQL_USER:-""}
 MYSQL_PASSWORD=${MYSQL_PASSWORD:-""}
-
-chown -R mysql:mysql /var/lib/mysql
-
 VOLUME_HOME="/var/lib/mysql"
+
+
+chown -R mysql:mysql $VOLUME_HOME
 
 if [[ ! -d $VOLUME_HOME/mysql ]]; then
     echo "=> An empty or uninitialized MariaDB volume is detected in $VOLUME_HOME"
@@ -19,8 +19,8 @@ else
 fi
 
 
-PASS=${MYSQL_ROOT_PASSWORD:-$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 8)}
-_word=$( [ ${MYSQL_ROOT_PASSWORD} ] && echo "preset" || echo "random" )
+PASS=${MYSQL_ADMIN_PASSWORD:-$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 8)}
+_word=$( [ ${MYSQL_ADMIN_PASSWORD} ] && echo "preset" || echo "random" )
 
 echo "=> Creating MariaDB admin user with ${_word} password"
 
@@ -43,10 +43,6 @@ fi
 sleep 5
 mysql < $tfile
 rm -f $tfile
-kill %1
-wait
-
-exec mysqld_safe
 
 echo "=> Done!"
 
@@ -58,3 +54,5 @@ echo ""
 echo "Please remember to change the above password as soon as possible!"
 echo "MariaDB user 'root' has no password but only allows local connections"
 echo "========================================================================"
+
+exec mysqld_safe
