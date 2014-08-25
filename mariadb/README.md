@@ -61,3 +61,10 @@ MariaDB [(none)]> exit
 Bye
 ```
 
+**Notice** 
+
+If you notice that the container has stopped running after its first been initialized then you can simply start it up using the following commands;
+
+```
+
+```
