@@ -31,7 +31,7 @@ if [[ ! -f "$tfile" ]]; then
 fi
 cat << EOF > $tfile
 USE mysql;
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY "$PASS'";
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '$PASS';
 FLUSH PRIVILEGES;
 EOF
 if [[ $MYSQL_DATABASE != "" ]]; then
@@ -58,5 +58,6 @@ echo "========================================================================"
 
 else
     echo "=> Using an existing volume of MariaDB"
-    exec mysqld_safe
 fi
+
+exec mysqld_safe
