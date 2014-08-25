@@ -1,0 +1,57 @@
+#!/bin/bash
+set -e
+
+MYSQL_DATABASE=${MYSQL_DATABASE:-""}
+MYSQL_USER=${MYSQL_USER:-""}
+MYSQL_PASSWORD=${MYSQL_PASSWORD:-""}
+
+chown -R mysql:mysql /var/lib/mysql
+
+VOLUME_HOME="/var/lib/mysql"
+
+if [[ ! -d $VOLUME_HOME/mysql ]]; then
+    echo "=> An empty or uninitialized MariaDB volume is detected in $VOLUME_HOME"
+    echo "=> Installing MariaDB ..."
+    mysql_install_db > /dev/null 2>&1
+    echo "=> Done!"  
+else
+    echo "=> Using an existing volume of MariaDB"
+fi
+
+
+PASS=${MYSQL_ROOT_PASSWORD:-$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 8)}
+_word=$( [ ${MYSQL_ROOT_PASSWORD} ] && echo "preset" || echo "random" )
+
+echo "=> Creating MariaDB admin user with ${_word} password"
+
+tfile=`mktemp`
+if [[ ! -f "$tfile" ]]; then
+    return 1
+fi
+cat << EOF > $tfile
+USE mysql;
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY "$PASS'";
+FLUSH PRIVILEGES;
+EOF
+if [[ $MYSQL_DATABASE != "" ]]; then
+    echo "CREATE DATABASE IF NOT EXISTS \`$MYSQL_DATABASE\` CHARACTER SET utf8 COLLATE utf8_general_ci;" >> $tfile
+    if [[ $MYSQL_USER != "" ]]; then
+        echo "GRANT ALL ON \`$MYSQL_DATABASE\`.* to '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD';" >> $tfile
+    fi
+fi
+
+mysql < $tfile
+rm -f $tfile
+
+exec supervisord -n
+
+echo "=> Done!"
+
+echo "========================================================================"
+echo "You can now connect to this MariaDB Server using:"
+echo ""
+echo "    mysql -uadmin -p$PASS -h<host> -P<port>"
+echo ""
+echo "Please remember to change the above password as soon as possible!"
+echo "MariaDB user 'root' has no password but only allows local connections"
+echo "========================================================================"
