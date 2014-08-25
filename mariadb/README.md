@@ -16,6 +16,7 @@ docker run -d -p 3306:3306 russmckendrick/mariadb
 docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=y0Urp455w0rd russmckendrick/mariadb
 docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=y0Urp455w0rd -e MYSQL_DATABASE=wibble -e MYSQL_USER=rah -e MYSQL_PASSWORD=y0UrDbP455w0rD russmckendrick/mariadb
 docker run -d -p 3306:3306 -e MYSQL_DATABASE=wibble russmckendrick/mariadb
+docker run -d -p 3306:3306 --name="database" -e MYSQL_DATABASE=wibble -v /home/containers/database:/var/lib/mysql russmckendrick/mariadb
 ```
 
 If you didn't set `MYSQL_ROOT_PASSWORD` then you can run `docker logs` to see what password has been set;
@@ -60,3 +61,5 @@ MariaDB [(none)]> show databases;
 MariaDB [(none)]> exit
 Bye
 ```
+
+
