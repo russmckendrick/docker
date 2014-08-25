@@ -1,7 +1,7 @@
 MariaDB
 =============
 
-A Docker build which runs just [MariaDB 5.5](https://mariadb.org/.
+A Docker build which runs just [MariaDB 5.5](https://mariadb.org/).
 
 You can set the root MySQL password by passing the `MYSQL_ROOT_PASSWORD` as an environment variable (if nothing is passed then the password will be random, so you will need to it from the logs). You can also create a database by setting and passing the following ...
 
@@ -59,12 +59,4 @@ MariaDB [(none)]> show databases;
 
 MariaDB [(none)]> exit
 Bye
-```
-
-**Notice** 
-
-If you notice that the container has stopped running after its first been initialized then you can simply start it up using the following commands;
-
-```
-
 ```
