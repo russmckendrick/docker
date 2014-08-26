@@ -1,0 +1,25 @@
+#!/bin/bash
+set -e
+
+echo "=> Configuring PHP-FPM Proxy settings ..."
+
+if [[ $PHP_FPM_HOST != "" ]]; then
+echo "=> Custom host ($PHP_FPM_HOST) being used"
+sed -i 's/php-host/'$PHP_FPM_HOST'/g' /etc/nginx/conf.d/default.conf
+else
+echo "=> Default host (php-fpm) being used"
+sed -i 's/php-host/php-fpm/g' /etc/nginx/conf.d/default.conf
+fi
+echo "=> Done!"
+
+if [[ $PHP_FPM_PORT != "" ]]; then
+echo "=> Custom port ($PHP_FPM_PORT) being used"
+sed -i 's/php-port/'$PHP_FPM_PORT'/g' /etc/nginx/conf.d/default.conf
+else
+echo "=> Default port (9000) being used"
+sed -i 's/php-port/9000/g' /etc/nginx/conf.d/default.conf
+fi
+echo "=> Done!"
+echo "=> ... Finish configuring PHP-FPM Proxy settings"
+
+exec nginx > /dev/null 2>&1
