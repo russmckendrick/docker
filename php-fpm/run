@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "=> Installing PHP-FPM ..."
+echo "=> Configuring PHP-FPM ..."
 
 if [[ $PHP_POOL != "" ]]; then
 echo "=> Custom pool name ($PHP_POOL) being used"
@@ -33,6 +33,6 @@ echo "=> Allowing listen from anywhere"
 sed -i 's/^listen.allowed_clients/;listen.allowed_clients/' /etc/php-fpm.d/www.conf
 echo "=> Done!"
 
-echo "=> Finish installing PHP-FPM ..."
+echo "=> ... Finish configuring PHP-FPM"
 
 exec php-fpm -F > /dev/null 2>&1
