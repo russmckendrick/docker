@@ -4,6 +4,5 @@
 
 FROM centos:latest
 MAINTAINER Russ McKendrick <russ@media-glass.es>
-RUN ["/usr/bin/rpm", "--import", "/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7"]
-RUN ["/usr/bin/yum", "-y", "update"]
-RUN ["/usr/bin/yum", "-y", "install", "yum-priorities", "vim-enhanced"]
+RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+yum -y update && yum -y install yum-priorities vim-enhanced && yum clean all
