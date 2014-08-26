@@ -11,4 +11,3 @@ RUN sed -i '/worker_processes  1;/a daemon off;' /etc/nginx/nginx.conf
 ADD run /usr/local/bin/
 RUN chmod +x /usr/local/bin/run
 CMD ["/usr/local/bin/run"]
-CMD ["nginx"]
