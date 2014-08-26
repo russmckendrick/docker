@@ -22,4 +22,4 @@ docker run -d -v /home/containers/web:/var/www/html --name="php" --link database
 docker run -d -p 8080:80 -v /home/containers/web:/var/www/html --link php:php-fpm --name="nginx" russmckendrick/nginx
 ```
 
-<script type="text/javascript" src="https://asciinema.org/a/11731.js" id="asciicast-11731" async></script>
+See [this terminal session](https://asciinema.org/a/11731) for a demo.
