@@ -7,8 +7,7 @@ MAINTAINER Russ McKendrick <russ@media-glass.es>
 
 ADD nginx.repo /etc/yum.repos.d/
 RUN yum -y install nginx tar && yum clean all
-RUN sed -i '/worker_processes  1;/a daemon off;' /etc/nginx/nginx.conf
-RUN sed -i 's/# server_names_hash_bucket/server_names_hash_bucket/g' /etc/nginx/nginx.conf
+RUN sed -i '/worker_processes  1;/a daemon off;' /etc/nginx/nginx.conf && sed -i '/keepalive_timeout  65;/a server_names_hash_bucket_size 64;' /etc/nginx/nginx.conf
 
 RUN mkdir /app
 WORKDIR /app
@@ -22,3 +21,6 @@ EXPOSE 80
 ENV DOCKER_HOST unix:///tmp/docker.sock
 
 CMD ["forego", "start", "-r"]
+
+
+
