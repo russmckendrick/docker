@@ -40,6 +40,5 @@ echo "=> Composer not run"
 fi
 
 echo "=> ... Starting Services"
-exec php-fpm -F > /dev/null 2>&1
-exec nginx > /dev/null 2>&1
+exec supervisord -n > /dev/null 2>&1
 echo "=> Done!"
