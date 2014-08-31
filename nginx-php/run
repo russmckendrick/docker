@@ -1,0 +1,45 @@
+#!/bin/bash
+set -e
+
+echo "=> Configuring NGINX ..."
+if [ "$SERVER_CONF" = "yes" ]; then
+rm /etc/nginx/conf.d/default.conf
+ln -s /var/www/html/.docker/nginx.conf /etc/nginx/conf.d/default.conf
+echo "=> Using custom NGINX configuration"
+else
+echo "=> Using default NGINX configuration"
+fi
+
+echo "=> Configuring PHP-FPM ..."
+
+if [[ $PHP_POOL != "" ]]; then
+echo "=> Custom pool name ($PHP_POOL) being used"
+sed -i '/[www]/c\['$PHP_POOL']' /etc/php-fpm.d/www.conf
+else
+echo "=> Default pool name (www) being used"
+fi
+echo "=> Done!"
+
+echo "=> Setting user & group (webserver)"
+sed -i '/^user/c \user = webserver' /etc/php-fpm.d/www.conf
+sed -i '/^group/c \group = webserver' /etc/php-fpm.d/www.conf
+echo "=> Done!"
+
+echo "=> Allowing listen from anywhere"
+sed -i 's/^listen.allowed_clients/;listen.allowed_clients/' /etc/php-fpm.d/www.conf
+echo "=> Done!"
+
+echo "=> ... Finished configuring PHP-FPM"
+
+if [ "$COMPOSER" = "yes" ]; then
+echo "=> ... Running composer install"
+su webserver -c "cd /var/www/html/ && composer install"
+echo "=> Done!"
+else
+echo "=> Composer not run"
+fi
+
+echo "=> ... Starting Services"
+exec php-fpm -F > /dev/null 2>&1
+exec nginx > /dev/null 2>&1
+echo "=> Done!"
