@@ -24,3 +24,5 @@ docker run -d -p 80 -v /home/containers/web:/var/www/html -e VIRTUAL_HOST=some.d
 ```
 
 See [this terminal session](https://asciinema.org/a/11731) for a demo or this [blog post](https://media-glass.es/2014/08/31/docker-fig-reverse-proxy-centos7/) for more details.
+
+To connect to these containers use `nsenter` / `docker-enter`, see [this blog post](https://media-glass.es/2014/08/25/connecting-to-docker-containers/) for details.
