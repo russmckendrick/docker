@@ -31,10 +31,9 @@ echo "=> Done!"
 
 echo "=> ... Finished configuring PHP-FPM"
 
-if [ "$COMPOSER" = "yes" ]; then
+if [ "$USECOMPOSER" = "yes" ]; then
 echo "=> ... Running composer install"
-cd /var/www/html/
-su -s /bin/sh webserver -c "cd /var/www/html/ && /usr/local/bin/composer install"
+su -s /bin/sh webserver -c "cd /var/www/html/ && composer install"
 echo "=> Done!"
 else
 echo "=> Composer not run"
