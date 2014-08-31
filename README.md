@@ -3,6 +3,8 @@ Docker
 
 A repo to house my trusted Docker builds, see my [Docker Index Profile](https://index.docker.io/u/russmckendrick/) for more information.
 
+To connect to these containers use `nsenter` / `docker-enter`, see [this blog post](https://media-glass.es/2014/08/25/connecting-to-docker-containers/) for details.
+
 ## General Containers
 
 - [Base](https://registry.hub.docker.com/u/russmckendrick/base/) - Base build for use with other Docker builds
@@ -23,6 +25,4 @@ docker run -d -v /home/containers/web:/var/www/html --name="php" --link database
 docker run -d -p 80 -v /home/containers/web:/var/www/html -e VIRTUAL_HOST=some.domain.com --link php:php-fpm --name="nginx" russmckendrick/nginx
 ```
 
-See [this terminal session](https://asciinema.org/a/11731) for a demo or this [blog post](https://media-glass.es/2014/08/31/docker-fig-reverse-proxy-centos7/) for more details.
-
-To connect to these containers use `nsenter` / `docker-enter`, see [this blog post](https://media-glass.es/2014/08/25/connecting-to-docker-containers/) for details.
+Have a look at [this terminal session](https://asciinema.org/a/11731) for a demo or have a read of this [blog post](https://media-glass.es/2014/08/31/docker-fig-reverse-proxy-centos7/) for a more detailed overview.
