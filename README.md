@@ -12,7 +12,7 @@ To connect to these containers use `nsenter` / `docker-enter`, see [this blog po
 
 ## CentOS 7 LEMP Stack
 
-- [NGinx & PHP 5.4](https://registry.hub.docker.com/u/russmckendrick/nginx-php/) - An all in-one NGINX / PHP container
+- [NGINX & PHP 5.4](https://registry.hub.docker.com/u/russmckendrick/nginx-php/) - An all in-one NGINX / PHP container
 - [MariaDB 5.5](https://registry.hub.docker.com/u/russmckendrick/mariadb/) - A MariaDB 5.5 container, best used with other containers
 - [NGINX](https://registry.hub.docker.com/u/russmckendrick/nginx/) - Runs NGINX, designed to be run alongside a [PHP-FPM container](https://registry.hub.docker.com/u/russmckendrick/php-fpm/)
 - [PHP 5.4 & PHP-FPM](https://registry.hub.docker.com/u/russmckendrick/php-fpm/)- Runs PHP 5.4 and PHP-FPM, for use with a [NGINX Container](https://registry.hub.docker.com/u/russmckendrick/nginx/)
