@@ -4,6 +4,7 @@ set -e
 MYSQL_DATABASE=${MYSQL_DATABASE:-""}
 MYSQL_USER=${MYSQL_USER:-""}
 MYSQL_PASSWORD=${MYSQL_PASSWORD:-""}
+MYSQL_IMPORT=${MYSQL_IMPORT:-""}
 VOLUME_HOME="/var/lib/mysql"
 
 chown -R mysql:mysql $VOLUME_HOME
@@ -50,6 +51,19 @@ echo "=> Adding user '$MYSQL_USER' with a password of '$MYSQL_PASSWORD'"
     fi
 fi
 
+if [[ $MYSQL_IMPORT != "" ]]; then
+echo "=> Importing database a database called to '$MYSQL_DATABASE'"
+mysql -u root $MYSQL_DATABASE < /root/import.sql
+fi
+
+kill %1 > /dev/null 2>&1
+/usr/sbin/runuser -u mysql pkill mysqld > /dev/null 2>&1
+wait
+
+else
+    echo "=> Using an existing volume of MariaDB"
+fi
+
 echo "=> Done!"
 echo "========================================================================"
 echo "You can now connect to this MariaDB Server using:"
@@ -61,14 +75,10 @@ echo " or:"
 echo ""
 echo "    mysql -u$MYSQL_USER -p$MYSQL_PASSWORD -h<host> -P<port> --protocol=TCP"
 fi
-echo "========================================================================"
-
-kill %1 > /dev/null 2>&1
-/usr/sbin/runuser -u mysql pkill mysqld > /dev/null 2>&1
-wait
-
-else
-    echo "=> Using an existing volume of MariaDB"
+if [[ $MYSQL_IMPORT != "" ]]; then
+echo ""
+echo "    Imported SQL to called to '$MYSQL_DATABASE'"
 fi
+echo "========================================================================"
 
 exec mysqld_safe > /dev/null 2>&1

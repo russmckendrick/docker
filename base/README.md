@@ -6,3 +6,4 @@ My base Docker image, based off the main [CentOS maintained image](https://regis
 Installs the following Repos;
 
 - [EPEL](https://fedoraproject.org/wiki/EPEL)
+- [IUS Community](https://iuscommunity.org)

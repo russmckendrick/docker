@@ -3,10 +3,12 @@
 #   See https://github.com/russmckendrick/docker/
 
 FROM russmckendrick/base:latest
-MAINTAINER Russ McKendrick <russ@media-glass.es>
-RUN yum -y install mariadb mariadb-server && yum clean all
+MAINTAINER Russ McKendrick <russ@mckendrick.io>
+
+RUN yum -y install mariadb100u mariadb100u-server mariadb100u-common && yum clean all
 ADD mysql-listen.cnf /etc/my.cnf.d/mysql-listen.cnf
 ENV MYSQL_HOME /etc
 ADD run /usr/local/bin/
-RUN chmod +x /usr/local/bin/run
+ADD dump /usr/local/bin/
+RUN chmod +x /usr/local/bin/run && chmod +x /usr/local/bin/dump
 CMD ["/usr/local/bin/run"]

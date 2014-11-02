@@ -3,7 +3,7 @@
 #   See https://github.com/russmckendrick/docker/
 
 FROM russmckendrick/base:latest
-MAINTAINER Russ McKendrick <russ@media-glass.es>
+MAINTAINER Russ McKendrick <russ@mckendrick.io>
 
 ADD nginx.repo /etc/yum.repos.d/
 RUN yum -y install nginx tar && yum clean all
