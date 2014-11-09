@@ -1,0 +1,6 @@
+[no1youknowz-hhvm-repo]
+name=Copr repo for hhvm-repo owned by no1youknowz
+baseurl=http://copr-be.cloud.fedoraproject.org/results/no1youknowz/hhvm-repo/epel-7-$basearch/
+skip_if_unavailable=True
+gpgcheck=0
+enabled=1

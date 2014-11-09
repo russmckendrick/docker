@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+echo "=> Configuring NGINX ..."
+echo "=> Setting Postfix to use $MAIL_PORT_25_TCP_ADDR as a relay"
+postconf -e "relayhost = $MAIL_PORT_25_TCP_ADDR"
+echo "=> Done!"
+
+echo "=> ... Starting Services"
+exec supervisord -n > /dev/null 2>&1
+echo "=> Done!"
