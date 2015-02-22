@@ -6,6 +6,7 @@ FROM russmckendrick/base:latest
 MAINTAINER Russ McKendrick <russ@mckendrick.io>
 
 RUN yum -y install mariadb100u mariadb100u-server mariadb100u-common && yum clean all
+ADD my.cnf /etc/my.cnf
 ADD mysql-listen.cnf /etc/my.cnf.d/mysql-listen.cnf
 ENV MYSQL_HOME /etc
 RUN usermod -u 1000 mysql
