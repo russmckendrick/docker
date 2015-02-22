@@ -8,7 +8,6 @@ MYSQL_IMPORT=${MYSQL_IMPORT:-""}
 VOLUME_HOME="/var/lib/mysql"
 
 chown -R mysql:mysql $VOLUME_HOME
-chown -R mysql:mysql /var/run/mariadb /var/run/mysql
 
 if [[ ! -d $VOLUME_HOME/mysql ]]; then
 
