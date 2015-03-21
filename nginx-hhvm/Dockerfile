@@ -12,6 +12,7 @@ RUN yum -y install nginx mariadb hhvm python-setuptools postfix gcc make && yum 
 RUN easy_install pip && pip install "pip>=1.4,<1.5" --upgrade && pip install supervisor
 RUN groupadd apache && useradd webserver -u 666 && gpasswd -a webserver apache && mkdir -p /var/www/html/ && chown -R webserver:webserver /var/www/html/
 ADD index.php /var/www/html/
+ADD nginx.conf /etc/nginx/nginx.conf
 ADD conf-supervisord.conf /etc/supervisord.conf
 ADD default.conf /etc/nginx/conf.d/default.conf
 ADD run /usr/local/bin/
