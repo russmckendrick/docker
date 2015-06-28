@@ -1,7 +1,7 @@
 Docker
 =============
 
-A repo to house my trusted Docker builds, see my [Docker Index Profile](https://index.docker.io/u/russmckendrick/) for more information.
+A repo to house my trusted Docker builds, see my [Docker Index Profile](https://index.docker.io/u/russmckendrick/) for more information. Have a read of [my blog posts on Docker](https://media-glass.es/tag/docker/) for more information.
 
 ## General Containers
 
@@ -47,5 +47,3 @@ db:
     MYSQL_USER: your-database-user
     MYSQL_PASSWORD: your-database-password
 ```
-
-Have a read of [my blog posts on Docker](https://media-glass.es/tag/docker/) for more information.
