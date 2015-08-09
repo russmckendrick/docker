@@ -13,5 +13,5 @@ ADD default.conf /etc/nginx/conf.d/default.conf
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 ADD run /usr/local/bin/
 RUN chmod +x /usr/local/bin/run
-RUN yum -y remove gcc cpp glibc-devel glibc-headers kernel-headers libmpc mpfr gcc make && yum clean all
+RUN yum -y remove --nodeps gcc cpp glibc-devel glibc-headers kernel-headers libmpc mpfr gcc make && yum clean all
 CMD ["/usr/local/bin/run"]
