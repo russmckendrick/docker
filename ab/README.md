@@ -1,6 +1,8 @@
 Apache Bench
 =============
 
+[![](https://badge.imagelayers.io/russmckendrick/ab:latest.svg)](https://imagelayers.io/?images=russmckendrick/ab:latest 'Get your own badge on imagelayers.io')
+
 A Docker build that installs Apache Bench. 
 
 

@@ -1,6 +1,8 @@
 NGINX & HHVM
 =============
 
+[![](https://badge.imagelayers.io/russmckendrick/nginx-hhvm:latest.svg)](https://imagelayers.io/?images=russmckendrick/nginx-hhvm:latest 'Get your own badge on imagelayers.io')
+
 A Docker build which runs a CentOS 7 container with NGINX and HHVM.
 
 ```
