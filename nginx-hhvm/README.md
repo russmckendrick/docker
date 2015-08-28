@@ -5,10 +5,8 @@ NGINX & HHVM
 
 A Docker build which runs a CentOS 7 container with NGINX and HHVM.
 
-```
-docker run -d -p 80 -v /home/containers/web:/var/www/html russmckendrick/nginx-hhvm
-docker run -d -p 80 -v /home/containers/web:/var/www/html -e VIRTUAL_HOST=some.domain.com --link database:db russmckendrick/nginx-hhvm
-```
+- `docker run -d -p 80 -v /home/containers/web:/var/www/html russmckendrick/nginx-hhvm`
+- `docker run -d -p 80 -v /home/containers/web:/var/www/html -e VIRTUAL_HOST=some.domain.com --link database:db russmckendrick/nginx-hhvm`
 
 ## Notes
 
