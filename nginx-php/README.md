@@ -19,3 +19,5 @@ This cotainer users a user called `webserver`, if you are mounting volumes pleas
 ```
 useradd webserver -u 666
 ```
+
+[![](https://badge.imagelayers.io/russmckendrick/nginx-php:latest.svg)](https://imagelayers.io/?images=russmckendrick/nginx-php:latest 'Get your own badge on imagelayers.io')
