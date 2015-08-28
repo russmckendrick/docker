@@ -3,7 +3,7 @@ MariaDB
 
 [![](https://badge.imagelayers.io/russmckendrick/mariadb:latest.svg)](https://imagelayers.io/?images=russmckendrick/mariadb:latest 'Get your own badge on imagelayers.io')
 
-A Docker build which runs just [MariaDB 5.5](https://mariadb.org/).
+A Docker build which runs just [MariaDB 10.0.21](https://mariadb.org/).
 
 You can set the root MySQL password by passing the `MYSQL_ROOT_PASSWORD` as an environment variable (if nothing is passed then the password will be random, so you will need to it from the logs). You can also create a database by setting and passing the following ...
 
