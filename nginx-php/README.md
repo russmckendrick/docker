@@ -1,7 +1,7 @@
 NGINX & PHP
 =============
 
-A Docker build which runs a CentOS 7 container with NGINX and PHP 5.4.
+A Docker build which runs a CentOS 7 container with NGINX and PHP 5.6.
 
 - `CUSTOM_CONF` = If `yes` then the default.conf file will be removed and a sym link to `/var/www/html/.docker/nginx.conf` created.
 - `RUN_COMPOSER` = If `yes` then composer install will be run as the `webserver` user in `/var/www/html/`
