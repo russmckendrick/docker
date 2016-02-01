@@ -13,13 +13,12 @@ A repo to house my trusted Docker builds, see my [Docker Index Profile](https://
 
 - [NGINX & PHP 5.6](https://registry.hub.docker.com/u/russmckendrick/nginx-php/) - An all in-one NGINX / PHP container
 - [MariaDB 10](https://registry.hub.docker.com/u/russmckendrick/mariadb/) - A MariaDB 5.5 container, best used with other containers
-- [NGINX & HHVM](https://registry.hub.docker.com/u/russmckendrick/nginx-hhvm/) - Runs NGINX & HHVM, see [this blog post for more into](https://media-glass.es/2014/11/09/experiment-docker-hhvm/)
 
 To run a stack you would run something like;
 
 ```
 docker run -d -v /home/containers/database:/var/lib/mysql --name="db" russmckendrick/mariadb
-docker run -d -v /home/containers/web:/var/www/html -e VIRTUAL\_HOST=some.domain.com --link db:db --name="web" russmckendrick/nginx-php
+docker run -d -v /home/containers/web:/var/www/html -e VIRTUAL_HOST=some.domain.com --link db:db --name="web" russmckendrick/nginx-php
 ```
 
 or use the following `docker-compose.yml` file;

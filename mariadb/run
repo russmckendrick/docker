@@ -23,7 +23,7 @@ _word=$( [ ${MYSQL_ROOT_PASSWORD} ] && echo "user defined" || echo "a random" )
 
 echo "=> Creating MariaDB root user with ${_word} password"
 
-/usr/sbin/runuser -u mysql /usr/libexec/mysqld > /dev/null 2>&1 &
+/usr/bin/mysqld > /dev/null 2>&1 &
 sleep 5
 
 tfile=`mktemp`
@@ -57,7 +57,7 @@ mysql -u root $MYSQL_DATABASE < /root/import.sql
 fi
 
 kill %1 > /dev/null 2>&1
-/usr/sbin/runuser -u mysql pkill mysqld > /dev/null 2>&1
+pkill mysqld > /dev/null 2>&1
 wait
 
 else
@@ -81,4 +81,4 @@ echo "    Imported SQL to called to '$MYSQL_DATABASE'"
 fi
 echo "========================================================================"
 
-exec mysqld_safe > /dev/null 2>&1
+exec mysqld > /dev/null 2>&1

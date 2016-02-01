@@ -2,7 +2,7 @@
 #
 #   See https://github.com/russmckendrick/docker/
 
-FROM russmckendrick/base:latest
+FROM centos:latest
 MAINTAINER Russ McKendrick <russ@mckendrick.io>
 
 ADD nginx.repo /etc/yum.repos.d/

@@ -2,11 +2,28 @@
 
 FROM russmckendrick/base:latest
 MAINTAINER Russ McKendrick <russ@mckendrick.io>
-ADD nginx.repo /etc/yum.repos.d/
-RUN yum -y install nginx mariadb php56u php56u-common php56u-fpm php56u-process php56u-pecl-jsonc php56u-cli php56u-mysqlnd php56u-pdo php56u-gd php56u-pspell php56u-snmp php56u-xmlrpc php56u-xml php56u-pear php56u-mcrypt php56u-mbstring php56u-opcache python-setuptools && yum clean all && easy_install supervisor && useradd webserver -u 666 && gpasswd -a webserver apache && yum clean all
-ADD conf-supervisord.conf /etc/supervisord.conf
-ADD nginx.conf /etc/nginx/nginx.conf
-ADD default.conf /etc/nginx/conf.d/default.conf
-ADD run /usr/local/bin/
-RUN chmod +x /usr/local/bin/run
-CMD ["/usr/local/bin/run"]
+
+ENV TERM dumb
+
+RUN apk add --update \
+		supervisor nginx php php-fpm \
+		php-zlib php-mcrypt php-openssl \
+		php-gd php-xml php-json && \ 
+	rm -rf /var/cache/apk/* && \
+	mkdir /tmp/nginx && \
+	mkdir -p /var/www/html && \
+	echo "<?php phpinfo(); ?>" > /var/www/html/index.php && \
+	chown -R nginx:nginx /var/www/html && \
+	sed -i 's/memory_limit = .*/memory_limit = 768M/' /etc/php/php.ini && \
+	sed -i 's/post_max_size = .*/post_max_size = 50M/' /etc/php/php.ini && \
+	echo 'date.timezone = "Europe/London"' >> /etc/php/php.ini && \
+	sed -i '/^user/c \user = nginx' /etc/php/php-fpm.conf && \
+	sed -i '/^group/c \group = nginx' /etc/php/php-fpm.conf && \
+	sed -i 's/^listen.allowed_clients/;listen.allowed_clients/' /etc/php/php-fpm.conf
+
+COPY files/default.conf /etc/nginx/conf.d/
+COPY files/nginx.conf /etc/nginx/nginx.conf
+COPY files/supervisord.conf /etc/supervisord.conf
+
+EXPOSE 80 443
+CMD ["supervisord"]

@@ -1,6 +1,9 @@
 ### Dockerfile
+#
+#   See https://github.com/russmckendrick/docker
 
 FROM russmckendrick/base:latest
 MAINTAINER Russ McKendrick <russ@mckendrick.io>
-RUN yum -y install httpd-tools && yum clean all
-CMD ["/usr/bin/ab"]
+
+RUN apk add  -U apache2-utils
+RUN rm -rf /var/cache/apk/*
