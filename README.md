@@ -12,7 +12,7 @@ A repo to house my trusted Docker builds, see my [Docker Index Profile](https://
 ## Stacks
 
 - [NGINX & PHP 5.6](https://registry.hub.docker.com/u/russmckendrick/nginx-php/) - An all in-one NGINX / PHP container
-- [MariaDB 10](https://registry.hub.docker.com/u/russmckendrick/mariadb/) - A MariaDB 5.5 container, best used with other containers
+- [MariaDB](https://registry.hub.docker.com/u/russmckendrick/mariadb/) - A MariaDB 10 container, best used with other containers
 
 To run a stack you would run something like;
 
