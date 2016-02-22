@@ -19,4 +19,6 @@ RUN echo "${CONSUL_SHA256}  /tmp/consul.zip" > /tmp/consul.sha256 \
   && chmod +x /bin/consul \
   && rm /tmp/consul.zip
 
-ENTRYPOINT ["/bin/consul", "agent", "-server", "-config-dir=/config"]
+VOLUME /var/lib/consul
+
+ENTRYPOINT ["/bin/consul", "agent", "-server", "-config-dir=/config", "-data-dir=/var/lib/consul"]
