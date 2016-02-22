@@ -11,6 +11,7 @@ RUN apk --update add curl && \
     apk add --allow-untrusted /tmp/glibc-2.21-r2.apk && \
     rm -rf /tmp/glibc-2.21-r2.apk /var/cache/apk/*
 ADD https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip /tmp/consul.zip
+ADD ./config /config/
 RUN echo "${CONSUL_SHA256}  /tmp/consul.zip" > /tmp/consul.sha256 \
   && sha256sum -c /tmp/consul.sha256 \
   && cd /bin \
@@ -18,4 +19,4 @@ RUN echo "${CONSUL_SHA256}  /tmp/consul.zip" > /tmp/consul.sha256 \
   && chmod +x /bin/consul \
   && rm /tmp/consul.zip
 
-ENTRYPOINT ["/bin/consul"]
+ENTRYPOINT ["/bin/consul", "agent", "-server", "-config-dir=/config"]
