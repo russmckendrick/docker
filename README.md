@@ -8,6 +8,7 @@ A repo to house my trusted Docker builds, see my [Docker Index Profile](https://
 - [Base](https://registry.hub.docker.com/u/russmckendrick/base/) - Base build for use with other Docker builds
 - [NGINX Proxy](https://registry.hub.docker.com/u/russmckendrick/nginx-proxy/) - A reverse proxy container
 - [AB](https://hub.docker.com/r/russmckendrick/ab/) - A container to run Apache Bench
+- [Consul](https://github.com/russmckendrick/docker/consul) - Run a single or clustered Consul install
 
 ## Stacks
 
