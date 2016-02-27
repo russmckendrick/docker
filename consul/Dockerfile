@@ -23,4 +23,4 @@ VOLUME [ "/data" ]
 
 ENTRYPOINT [ "/bin/consul" ]
 
-CMD [ "agent", "-data-dir", "/data" ]
+CMD [ "agent", "-data-dir", "/data", "-server", "-bootstrap-expect", "3" "-ui-dir", /ui" "-client=0.0.0.0"]
