@@ -3,17 +3,10 @@ NGINX-Proxy
 
 [![](https://badge.imagelayers.io/russmckendrick/nginx-proxy:latest.svg)](https://imagelayers.io/?images=russmckendrick/nginx-proxy:latest 'Get your own badge on imagelayers.io')
 
-A Docker build which runs a CentOS 7 container with NGINX and [docker-gen](https://github.com/jwilder/docker-gen)
+A Docker build which runs an Alpine Linux container with NGINX and [docker-gen](https://github.com/jwilder/docker-gen)
 
 ```
 docker run -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock -t russmckendrick/nginx-proxy
-```
-
-or if you are running CentOS 7 you can run the set the container to run as a system services by running;
-
-```
-curl -Ls https://raw.githubusercontent.com/russmckendrick/docker/master/nginx-proxy/docker-nginx-router.service > /usr/lib/systemd/system/docker-nginx-router.service
-systemctl enable docker-nginx-router && systemctl start docker-nginx-router
 ```
 
 Once you have the router running you can launch your containers with the `VIRTUAL_HOST` environment variable;

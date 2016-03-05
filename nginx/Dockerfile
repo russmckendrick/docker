@@ -1,4 +1,6 @@
 ### Dockerfile
+#
+#   See https://github.com/russmckendrick/docker
 
 FROM russmckendrick/base:latest
 MAINTAINER Russ McKendrick <russ@mckendrick.io>
