@@ -5,15 +5,19 @@
 FROM russmckendrick/base:latest
 MAINTAINER Russ McKendrick <russ@mckendrick.io>
 
-ENV CONSUL_VERSION 0.6.3
+ENV CONSUL_VERSION 0.6.4
+ENV CONSUL_SHA256 abdf0e1856292468e2c9971420d73b805e93888e006c76324ae39416edcf0627
+ENV CONSUL_UI_SHA256 5f8841b51e0e3e2eb1f1dc66a47310ae42b0448e77df14c83bb49e0e0d5fa4b7
 
 RUN  apk add --update wget \
   && wget https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip \
+  && echo "$CONSUL_SHA256 consul_${CONSUL_VERSION}_linux_amd64.zip" | sha256sum -c - \
   && unzip consul_${CONSUL_VERSION}_linux_amd64.zip \
   && mv consul /bin/ \
   && rm -rf consul_${CONSUL_VERSION}_linux_amd64.zip \
   && cd /tmp \
   && wget -O ui.zip https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_web_ui.zip \
+  && echo "$CONSUL_UI_SHA256 consul_${CONSUL_VERSION}_web_ui.zip" | sha256sum -c - \
   && unzip ui.zip \
   && mkdir -p /ui \
   && mv * /ui \
