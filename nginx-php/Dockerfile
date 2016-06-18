@@ -8,9 +8,9 @@ MAINTAINER Russ McKendrick <russ@mckendrick.io>
 ENV TERM dumb
 
 RUN apk add --update \
-		supervisor nginx php php-fpm \
-		php-zlib php-mcrypt php-openssl \
-		php-gd php-xml php-json && \ 
+		supervisor nginx php5 php5-fpm \
+		php5-zlib php5-mcrypt php5-openssl \
+		php5-gd php5-xml php5-json && \ 
 	rm -rf /var/cache/apk/* && \
 	mkdir /tmp/nginx && \
 	mkdir -p /var/www/html && \
