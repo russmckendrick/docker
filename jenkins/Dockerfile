@@ -7,7 +7,7 @@ MAINTAINER Russ McKendrick <russ@mckendrick.io>
 
 ENV JENKINS_HOME /var/jenkins
 ENV JENKINS_OPTS ""
-ENV JENKINS_VERSION "2.6"
+ENV JENKINS_VERSION "latest"
 
 WORKDIR /opt
 RUN apk add --update git openjdk8-jre ttf-dejavu \

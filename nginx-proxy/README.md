@@ -1,8 +1,6 @@
 NGINX-Proxy
 =============
 
-[![](https://badge.imagelayers.io/russmckendrick/nginx-proxy:latest.svg)](https://imagelayers.io/?images=russmckendrick/nginx-proxy:latest 'Get your own badge on imagelayers.io')
-
 A Docker build which runs an Alpine Linux container with NGINX and [docker-gen](https://github.com/jwilder/docker-gen)
 
 ```
