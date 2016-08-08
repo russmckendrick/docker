@@ -1,6 +1,8 @@
 Apache Bench
 =============
 
+[![](https://images.microbadger.com/badges/image/russmckendrick/ab.svg)](https://microbadger.com/images/russmckendrick/ab "Get your own image badge on microbadger.com")
+
 A Docker build that installs Apache Bench. 
 
 

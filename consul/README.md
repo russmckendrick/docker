@@ -1,7 +1,7 @@
 Consul
 =============
 
-[![](https://badge.imagelayers.io/russmckendrick/consul:latest.svg)](https://imagelayers.io/?images=russmckendrick/consul:latest 'Get your own badge on imagelayers.io')
+[![](https://images.microbadger.com/badges/image/russmckendrick/consul.svg)](https://microbadger.com/images/russmckendrick/consul "Get your own image badge on microbadger.com")
 
 Run Consul either as a single node or cluster, built on an Alpine base image to keep it [tiny](https://media-glass.es/2016/02/01/tiny-docker-images/).
 

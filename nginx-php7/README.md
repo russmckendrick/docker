@@ -1,6 +1,8 @@
 NGINX & PHP7
 =============
 
+[![](https://images.microbadger.com/badges/image/russmckendrick/nginx-php7.svg)](https://microbadger.com/images/russmckendrick/nginx-php7 "Get your own image badge on microbadger.com")
+
 A Docker build which runs an Alpine Linux container with NGINX and PHP 7.
 
 ```

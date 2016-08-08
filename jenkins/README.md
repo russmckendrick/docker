@@ -1,6 +1,9 @@
 Jenkins 2
 =============
 
+[![](https://images.microbadger.com/badges/image/russmckendrick/jenkins.svg)](https://microbadger.com/images/russmckendrick/jenkins "Get your own image badge on microbadger.com")
+
+
 Run the latest Jenkins, built on an Alpine base image to keep it [tiny](https://media-glass.es/2016/02/01/tiny-docker-images/).
 
 ```

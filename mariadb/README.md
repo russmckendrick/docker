@@ -1,6 +1,8 @@
 MariaDB
 =============
 
+[![](https://images.microbadger.com/badges/image/russmckendrick/mariadb.svg)](https://microbadger.com/images/russmckendrick/mariadb "Get your own image badge on microbadger.com")
+
 A Docker build which runs just [MariaDB](https://mariadb.org/).
 
 You can set the root MySQL password by passing the `MYSQL_ROOT_PASSWORD` as an environment variable (if nothing is passed then the password will be random, so you will need to it from the logs). You can also create a database by setting and passing the following ...
