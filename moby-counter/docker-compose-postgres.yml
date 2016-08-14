@@ -1,0 +1,22 @@
+web:
+  image: myechuri/moby-counter-postgres
+  hostname: hello.weave.local
+  publish_service: hello.demonet.weave
+  dns: 10.23.11.10
+  environment:
+     - "USE_POSTGRES_HOST=postgres.weave.local"
+     - "POSTGRES_USER=flocker"
+     - "POSTGRES_PASSWORD=flocker"
+postgres:
+  image: postgres
+  hostname: postgres.weave.local
+  publish_service: postgres.demonet.weave
+  dns: 10.23.11.10
+  environment:
+     - "constraint:node==master"
+     - "POSTGRES_USER=flocker"
+     - "POSTGRES_PASSWORD=flocker"
+     - "PGDATA=/pgdata"
+  volume_driver: flocker
+  volumes:
+     - 'demo2:/pgdata'
