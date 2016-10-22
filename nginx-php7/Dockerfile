@@ -8,6 +8,7 @@ MAINTAINER Russ McKendrick <russ@mckendrick.io>
 ENV TERM dumb
 
 RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community/ >> /etc/apk/repositories && \
+	echo http://dl-cdn.alpinelinux.org/alpine/edge/main/ >> /etc/apk/repositories && \
 	apk add --update \
 		supervisor nginx php7 php7-fpm \
 		php7-zlib php7-mcrypt php7-openssl \
