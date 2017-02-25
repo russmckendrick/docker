@@ -1,6 +1,4 @@
-# Example Dockerfile showing CMD
-
-FROM alpine:latest
+FROM russmckendrick:base
 MAINTAINER Russ McKendrick <russ@mckendrick.io>
 
 RUN apk add --update supervisor nginx && rm -rf /var/cache/apk/*
