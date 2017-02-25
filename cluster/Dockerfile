@@ -3,7 +3,7 @@
 FROM russmckendrick/base:latest
 MAINTAINER Russ McKendrick <russ@mckendrick.io>
 
-RUN apk add --update supervisor nginx && rm -rf /var/cache/apk/* && mkdir -R /var/www/html
+RUN apk add --update supervisor nginx && rm -rf /var/cache/apk/* && mkdir -p /var/www/html
 
 COPY files/index.html files/swarm.png /var/www/html
 COPY files/start.sh /script/
