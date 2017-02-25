@@ -8,7 +8,7 @@ RUN apk add --update supervisor nginx && rm -rf /var/cache/apk/* && mkdir -p /va
 COPY files/index.html files/swarm.png /var/www/html/
 COPY files/start.sh /script/
 COPY files/default.conf /etc/nginx/conf.d/
-COPY files/nginx.conf /etc/nginx/nginx.conf/
+COPY files/nginx.conf /etc/nginx/nginx.conf
 COPY files/supervisord.conf /etc/supervisord.conf
 
 RUN chown -R nginx:nginx /var/www/html
