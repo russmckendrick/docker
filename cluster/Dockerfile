@@ -1,4 +1,6 @@
-FROM russmckendrick:base
+# Cluster image
+
+FROM russmckendrick/base:latest
 MAINTAINER Russ McKendrick <russ@mckendrick.io>
 
 RUN apk add --update supervisor nginx && rm -rf /var/cache/apk/*
