@@ -14,4 +14,4 @@ RUN apk add --update \
 	nodejs && \ 
 	rm -rf /var/cache/apk/* && \
 	npm -g install npm && \
-    npm cache clean
+    npm cache clean --force
