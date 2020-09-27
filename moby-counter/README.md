@@ -17,7 +17,7 @@ There are two versions of the moby app - one that saves data to Redis and one th
 
 ### Redis
 
-The default is to use the Redis connection - the envrionment variables that control this:
+The default is to use the Redis connection - the environment variables that control this:
 
  * USE_REDIS_HOST
  * USE_REDIS_PORT

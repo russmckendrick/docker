@@ -2,10 +2,13 @@
 #
 #   See https://github.com/russmckendrick/docker
 
-FROM russmckendrick/base:latest
-LABEL maintainer="Russ McKendrick <russ@mckendrick.io>"
+FROM ghcr.io/russmckendrick/base:latest
 
-ARG VERSION=5.1.1
+LABEL maintainer="Russ McKendrick <russ@mckendrick.io>"
+LABEL org.opencontainers.image.source https://github.com/russmckendrick/docker
+LABEL org.opencontainers.image.description "Metric beat container, see this containers GitHub repo for more info"
+
+ARG VERSION=7.9.2
 WORKDIR /metricbeat
 ENTRYPOINT [ "/metricbeat/metricbeat" ]
 CMD [ "-help" ]

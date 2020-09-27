@@ -1,7 +1,7 @@
 Metricbeat
 =============
 
-[![](https://images.microbadger.com/badges/image/russmckendrick/metricbeatsvg)](https://microbadger.com/images/russmckendrick/metricbeat "Get your own image badge on microbadger.com")
+[![](https://github.com/russmckendrick/docker/workflows/metricbeat/badge.svg)](https://github.com/users/russmckendrick/packages/container/package/metricbeat)
 
 A Docker build which runs an Alpine Linux container with metricbeat
 
@@ -12,6 +12,6 @@ docker run -d --name metricbeat \
   --volume=/sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro \
   --volume=/:/hostfs:ro \
   --network=elk
-  russmckendrick/metricbeat:latest -system.hostfs=/hostfs \
+  ghcr.io/russmckendrick/metricbeat:latest -system.hostfs=/hostfs \
   -E output.elasticsearch.hosts=elasticsearch
 ```
