@@ -1,8 +1,12 @@
-# Cluster image
+### Dockerfile
+#
+#   See https://github.com/russmckendrick/docker
 
 FROM ghcr.io/russmckendrick/base:latest
+
 LABEL maintainer="Russ McKendrick <russ@mckendrick.io>"
 LABEL org.opencontainers.image.source https://github.com/russmckendrick/docker
+LABEL org.opencontainers.image.description "Example Cluster application container, see this containers GitHub repo for more info"
 
 RUN apk add --update supervisor nginx && rm -rf /var/cache/apk/* && mkdir -p /var/www/html
 
