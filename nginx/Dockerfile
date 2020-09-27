@@ -3,9 +3,9 @@
 #   See https://github.com/russmckendrick/docker
 
 FROM ghcr.io/russmckendrick/base:latest
-LABEL org.opencontainers.image.authors Russ McKendrick <russ@mckendrick.io>
-LABEL org.opencontainers.image.source https://github.com/russmckendrick/docker
-LABEL org.opencontainers.image.description NGINX container, see https://github.com/russmckendrick/docker/nginx for more info
+LABEL org.opencontainers.image.authors "Russ McKendrick <russ@mckendrick.io>"
+LABEL org.opencontainers.image.source "https://github.com/russmckendrick/docker"
+LABEL org.opencontainers.image.description "NGINX container, see [https://github.com/russmckendrick/docker/nginx](https://github.com/russmckendrick/docker/nginx) for more info"
 ENV TERM dumb
 
 RUN apk add --update \
