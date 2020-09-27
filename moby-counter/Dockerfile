@@ -3,7 +3,7 @@
 #   See https://github.com/russmckendrick/docker
 
 FROM russmckendrick/nodejs:latest
-MAINTAINER Russ McKendrick <russ@mckendrick.io>
+LABEL maintainer="Russ McKendrick <russ@mckendrick.io>"
 
 ADD . /srv/app
 WORKDIR /srv/app

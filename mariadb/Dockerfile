@@ -3,8 +3,8 @@
 #   See https://github.com/russmckendrick/docker
 
 FROM russmckendrick/base:latest
-MAINTAINER Russ McKendrick <russ@mckendrick.io>
-
+LABEL maintainer="Russ McKendrick <russ@mckendrick.io>"
+ 
 ENV TERM dumb
 
 ADD run /usr/local/bin/
