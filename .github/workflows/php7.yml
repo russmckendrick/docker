@@ -1,4 +1,4 @@
-name: phphp7p5
+name: php7
 on:
   push:
     branches: master
