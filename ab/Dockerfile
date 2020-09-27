@@ -2,8 +2,8 @@
 #
 #   See https://github.com/russmckendrick/docker
 
-FROM russmckendrick/base:latest
-MAINTAINER Russ McKendrick <russ@mckendrick.io>
+FROM ghcr.io/russmckendrick/base:latest
+LABEL maintainer="Russ McKendrick <russ@mckendrick.io>"
 
 RUN apk add  -U apache2-utils
 RUN rm -rf /var/cache/apk/*
