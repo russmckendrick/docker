@@ -2,6 +2,7 @@
 
 FROM ghcr.io/russmckendrick/base:latest
 LABEL maintainer="Russ McKendrick <russ@mckendrick.io>"
+LABEL org.opencontainers.image.source https://github.com/russmckendrick/docker
 
 RUN apk add --update supervisor nginx && rm -rf /var/cache/apk/* && mkdir -p /var/www/html
 

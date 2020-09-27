@@ -1,4 +1,4 @@
-name: ab
+name: nginx
 on:
   push:
     branches: master
