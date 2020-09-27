@@ -2,8 +2,11 @@
 #
 #   See https://github.com/russmckendrick/docker
 
-FROM russmckendrick/base:latest
+FROM ghcr.io/russmckendrick/base:latest
+
 LABEL maintainer="Russ McKendrick <russ@mckendrick.io>"
+LABEL org.opencontainers.image.source https://github.com/russmckendrick/docker
+LABEL org.opencontainers.image.description "NodeJS container, see this containers GitHub repo for more info"
 
 ENV TERM dumb
 
