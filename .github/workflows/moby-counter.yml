@@ -1,10 +1,10 @@
-name: mobycounter
+name: moby-counter
 on:
   push:
     branches: master
     paths:
       - '!**'
-      - 'mobycounter/**'
+      - 'moby-counter/**'
 jobs:
   login:
     runs-on: ubuntu-latest
