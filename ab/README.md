@@ -10,7 +10,7 @@ A Docker build that installs Apache Bench.
 
 First of all launch a web server;
 
-- `docker run -d -p 80 -name web -v ./web:/var/www/html ghcr.io/russmckendrick/nginx-php`
+- `docker run -d -p 80 -name web -v ./web:/var/www/html ghcr.io/russmckendrick/php7`
 
 then run Apache Bench against it;
 
