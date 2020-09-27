@@ -14,7 +14,7 @@ ENV NPM_CONFIG_GLOBALCONFIG /etc/npmrc
 COPY npmrc /etc/npmrc
 
 RUN apk add --update \
-	nodejs && \ 
+	nodejs npm && \ 
 	rm -rf /var/cache/apk/* && \
 	npm -g install npm && \
     npm cache clean --force
