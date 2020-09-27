@@ -6,7 +6,7 @@ on:
       - '!**'
       - 'metricbeat/**'
 jobs:
-  login:
+  login-build-and-push:
     runs-on: ubuntu-latest
     steps:
       -
