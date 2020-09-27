@@ -4,7 +4,7 @@ on:
     branches: master
     paths:
       - '!**'
-      - '${{ github.workflow }}/**'
+      - 'cluster/**'
 jobs:
   login:
     runs-on: ubuntu-latest
