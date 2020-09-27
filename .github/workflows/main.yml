@@ -26,7 +26,7 @@ jobs:
         with:
           push: true
           file: ./base/Dockerfile
-          tags: russmckendrick/base:latest
+          tags: ghcr.io/${{ github.repository_owner }}/base:latest
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
