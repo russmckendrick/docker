@@ -34,6 +34,13 @@ jobs:
           push: true
           file: ./base/Dockerfile
           tags: ghcr.io/${{ github.repository_owner }}/${{ github.workflow }}:latest
+      -
+        name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GHCR_TOKEN }}
       - 
         name: Build and push dated image
         id: docker_build_date
