@@ -44,7 +44,7 @@ jobs:
           file: ./base/Dockerfile
           tags: |
             ghcr.io/${{ github.repository_owner }}/${{ github.workflow }}:latest
-            ghcr.io/${{ github.repository_owner }}/${{ github.workflow }}:${{ steps.date.outputs.date }}-${{ github.run_number }}
+            ghcr.io/${{ github.repository_owner }}/${{ github.workflow }}:${{ steps.date.outputs.date }}${{ github.run_number }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
