@@ -1,10 +1,10 @@
-name: base
+name: cluster
 on:
   push:
     branches: master
     paths:
       - '!**'
-      - 'base/**'
+      - 'cluster/**'
 jobs:
   login:
     runs-on: ubuntu-latest

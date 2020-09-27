@@ -2,7 +2,7 @@
 #
 #   See https://github.com/russmckendrick/docker
 
-FROM russmckendrick/base:latest
+FROM ghcr.io/russmckendrick/base:latest
 LABEL maintainer="Russ McKendrick <russ@mckendrick.io>"
  
 ENV TERM dumb
