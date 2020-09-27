@@ -1,8 +1,7 @@
-Jenkins 2
+Jenkins
 =============
 
-[![](https://images.microbadger.com/badges/image/russmckendrick/jenkins.svg)](https://microbadger.com/images/russmckendrick/jenkins "Get your own image badge on microbadger.com")
-
+[![](https://github.com/russmckendrick/docker/workflows/jenkins/badge.svg)](https://github.com/users/russmckendrick/packages/container/package/jenkins)
 
 Run the latest Jenkins, built on an Alpine base image to keep it [tiny](https://media-glass.es/2016/02/01/tiny-docker-images/).
 
@@ -13,5 +12,5 @@ docker run -v /var/run/docker.sock:/var/run/docker.sock \
     -v ./jenkins:/var/jenkins \
     --privileged \
     --restart always \
-    russmckendrick/jenkins
+    ghcr.io/russmckendrick/jenkins:latest
 ```

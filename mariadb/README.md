@@ -1,7 +1,7 @@
 MariaDB
 =============
 
-[![](https://images.microbadger.com/badges/image/russmckendrick/mariadb.svg)](https://microbadger.com/images/russmckendrick/mariadb "Get your own image badge on microbadger.com")
+[![](https://github.com/russmckendrick/docker/workflows/mariadb/badge.svg)](https://github.com/users/russmckendrick/packages/container/package/mariadb)
 
 A Docker build which runs just [MariaDB](https://mariadb.org/).
 
@@ -11,18 +11,18 @@ You can set the root MySQL password by passing the `MYSQL_ROOT_PASSWORD` as an e
 - `MYSQL_USER` = Username for the database you defined in `MYSQL_DATABASE`
 - `MYSQL_PASSWORD` = Password for the user created in `MYSQL_USER`
 
-You can lauch a continer by using one of the following ...
+You can launch a container by using one of the following ...
 
-- `docker run -d -p 3306:3306 russmckendrick/mariadb`
-- `docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=y0Urp455w0rd russmckendrick/mariadb`
-- `docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=y0Urp455w0rd -e MYSQL_DATABASE=wibble -e MYSQL_USER=rah -e MYSQL_PASSWORD=y0UrDbP455w0rD russmckendrick/mariadb`
-- `docker run -d -p 3306:3306 -e MYSQL_DATABASE=wibble russmckendrick/mariadb`
-- `docker run -d -p 3306:3306 --name="database" -e MYSQL_DATABASE=wibble -v /home/containers/database:/var/lib/mysql russmckendrick/mariadb`
+- `docker run -d -p 3306:3306 ghcr.io/russmckendrick/mariadb:latest`
+- `docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=y0Urp455w0rd ghcr.io/russmckendrick//ariadb:latest`
+- `docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=y0Urp455w0rd -e MYSQL_DATABASE=wibble -e MYSQL_USER=rah -e MYSQL_PASSWORD=y0UrDbP455w0rD ghcr.io/russmckendrick/mariadb:latest`
+- `docker run -d -p 3306:3306 -e MYSQL_DATABASE=wibble ghcr.io/russmckendrick/mariadb:latest`
+- `docker run -d -p 3306:3306 --name="database" -e MYSQL_DATABASE=wibble -v /home/containers/database:/var/lib/mysql ghcr.io/russmckendrick/mariadb:latest`
 
 If you didn't set `MYSQL_ROOT_PASSWORD` then you can run `docker logs` to see what password has been set;
 
 ``` bash
-[root@docker ~]# docker run -d -p 3306:3306 russmckendrick/mariadb
+[root@docker ~]# docker run -d -p 3306:3306 ghcr.io/russmckendrick/mariadb:latest
 26b504347376828eae8accda2715125a71e717c8462a8dbeba93189cb3bafdfa
 [root@docker mariadb]# docker ps
 CONTAINER ID        IMAGE                                COMMAND              CREATED             STATUS              PORTS                    NAMES

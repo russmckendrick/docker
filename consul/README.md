@@ -3,13 +3,12 @@ Consul
 
 [![](https://github.com/russmckendrick/docker/workflows/consul/badge.svg)](https://github.com/users/russmckendrick/packages/container/package/consul)
 
-
 Run Consul either as a single node or cluster, built on an Alpine base image to keep it [tiny](https://media-glass.es/2016/02/01/tiny-docker-images/).
 
 Launch a container configured to run as a single Consul node using the following;
 
 ```
-docker run -d -p "8400:8400" -p "8500:8500" -h "consul" ghcr.io/russmckendrick/consul:latest
+docker container run -d -p "8400:8400" -p "8500:8500" -h "consul" ghcr.io/russmckendrick/consul:latest
 ```
 
 This will launch the consul with the command below;

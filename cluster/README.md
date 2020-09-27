@@ -1,8 +1,10 @@
 Cluster Example
 =============
 
-[![](https://images.microbadger.com/badges/image/russmckendrick/cluster.svg)](https://microbadger.com/images/russmckendrick/cluster "Get your own image badge on microbadger.com")
+[![](https://github.com/russmckendrick/docker/workflows/cluster/badge.svg)](https://github.com/users/russmckendrick/packages/container/package/cluster)
 
-A container which runs NGINX and shows a page with the host name of the conatiner it is being served from.
+A container which runs NGINX and shows a page with the host name of the container it is being served from.
 
-```docker run -d -p 80:80 russmckendrick/cluster```
+```
+docker container run -d -p 80:80 ghcr.io/russmckendrick/cluster:latest
+```
