@@ -23,3 +23,5 @@ To run a stack you would run something like;
 docker run -d -v /home/containers/database:/var/lib/mysql --name="db" ghcr.io/russmckendrick/mariadb
 docker run -d -v /home/containers/web:/var/www/html -e VIRTUAL_HOST=app.dev.mckendrick.io --link db:db --name="web" ghcr.io/russmckendrick/nginx-php7
 ```
+For more information:
+https://docs.docker.com/
